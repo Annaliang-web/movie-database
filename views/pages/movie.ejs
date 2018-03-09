@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>The Movie Data Hub</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Fascinate+Inline" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-fixed-top"><!--    Nav Bar  -->
+            <div class="container-fluid">
+                <a id='logo' class="navbar-brand" href="http://localhost:8082/">TMDH</a>
+                <ul class="nav navbar-nav">
+                <li><a href="http://localhost:8082/">Movies</a></li>
+                <li><a href="http://localhost:8082/photos">Photos</a></li>
+                <li><a href="#">News</a></li>
+                </ul>
+                <form method='POST' action='/search' class="navbar-form navbar-right">
+                    <input type="text" name='searchMovies' id='searchMovies' class="form-control" placeholder="Search movies..">
+                    <button type="submit" class="btn btn-md">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </form>
+            </div>    
+            </nav>    
+            
+            <div id="movie-details">
+                <h1 class="text-center movie-page"><%= movieName %></h1>
+                <div class="row">
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                        <% for(let i = 0; i < movieList.length; i++){
+                                if(movieName === movieList[i].title){
+                                  %><img class="movie-poster movie-page" src= '<%= movieList[i].poster %>' />
+                            <%  }
+                        } %>
+                        
+                    </div>
+                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                        <table class="table">
+                        <% //   for(let i = 0; i < movieList.length; i++){ 
+                        for(let movie in movieList){    //Get every single piece of movie object
+                            
+                            for(let key in movieList[movie]){ //Get every Property and Value in every piece of movie object
+                                if(movieName == movieList[movie].title){
+                                %>
+                                <tr>
+                                    <td><%= key %></td>
+                                    <td><%= movieList[movie][key] %></td>
+                                </tr>    
+                                <%
+                                }                    
+                            }
+                          }%></table>
+                    </div>    
+                </div><!--row ends-->
+
+            <!--<div class="row">
+                    <div class=buttons>
+                        <a class="btn btn-primary" href=<%= 'http://localhost:8082/' %>>Back</a>
+                    </div>
+                </div> -->
+            </div><!--movie detail ends-->
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,83 @@
+/*context text*/
+/*nav bar text*/
+html, body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  padding-top: 100px;
+  background-color: #8a1111;
+  background-image: url("film.jpg"); }
+
+nav {
+  font-family: "Fascinate Inline", sans-serif;
+  padding-bottom: 5px !important;
+  padding-top: 5px !important; }
+  nav a#logo {
+    font-size: 2em !important;
+    color: #8a1111; }
+  nav li a {
+    font-size: 1.4em; }
+  nav button[role='submit'] {
+    height: 4.5%; }
+  nav input[role='text'] {
+    width: 300px !important; }
+
+.container {
+  font-family: "Audiowide", sans-serif;
+  background-color: rgba(236, 236, 232, 0.75); }
+  .container button {
+    height: 4.5%; }
+  .container input {
+    width: 300px !important; }
+
+div.movie-list-item {
+  padding: 10px;
+  cursor: pointer; }
+  div.movie-list-item .poster-container {
+    height: 200px;
+    width: 150px; }
+  div.movie-list-item .movie-poster {
+    max-height: 200px;
+    max-width: 150px; }
+  div.movie-list-item .released-date {
+    margin-top: 20px; }
+  div.movie-list-item:hover {
+    background-color: rgba(119, 117, 117, 0.7); }
+
+div#movie-details .movie-poster {
+  max-height: 350px;
+  max-width: 262px; }
+div#movie-details .buttons {
+  text-align: center; }
+
+.movie-link {
+  color: inherit; }
+  .movie-link:hover {
+    color: inherit;
+    text-decoration: none; }
+
+h1.movie-page {
+  margin-left: 20px; }
+
+img.movie-page {
+  margin-top: 25px;
+  margin-left: 45px; }
+
+/* ------------- Search Page ------------------ */
+div.searchBody {
+  margin-bottom: 400px; }
+  div.searchBody p {
+    margin: 10px 0 20px 35px;
+    font-size: 18px; }
+  div.searchBody ul {
+    list-style: none; }
+  div.searchBody li {
+    margin-bottom: 30px; }
+    div.searchBody li a {
+      font-size: 20px;
+      color: #630c0c; }
+
+/* ----------- Animated Search Bar ---------- */
+
+/*# sourceMappingURL=styles.css.map */

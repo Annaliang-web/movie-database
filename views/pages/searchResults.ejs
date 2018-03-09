@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>The Movie Data Hub</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Fascinate+Inline" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-fixed-top"><!--    Nav Bar  -->
+            <div class="container-fluid">
+                <a id='logo' class="navbar-brand" href="http://localhost:8082/">TMDH</a>
+                <ul class="nav navbar-nav">
+                <li><a href="http://localhost:8082/">Movies</a></li>
+                <li><a href="http://localhost:8082/photos">Photos</a></li>
+                <li><a href="#">News</a></li>
+                </ul>
+            <form method='POST' action='/search' class="navbar-form navbar-right">
+                <input type="text" name='searchMovies' id='searchMovies' class="form-control" placeholder="Search movies..">
+                <button type="submit" class="btn btn-md">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </form>
+            </div>    
+            </nav>     
+            
+            <div class="searchBody">
+                <%
+                    if(movieList.length === 0){ %>
+                       <p>No movie found.</p>
+                <%  } else { %>
+                       <p>Your results:</p>
+                       <ul>   
+                <%  
+                    for(let i =0; i<movieList.length; i++){
+                       %>
+                       <li><a href="http://localhost:8082/movie/<%= movieList[i].title %>"><%= 'Moive: ' + movieList[i].title +' Year: '+ movieList[i].year +' Director: '+ movieList[i].director + '...'%></a></li>
+
+                 <% } %>
+                    </ul>
+                <%
+                }
+                 %>
+            </div>
+            
+        </div>
+    </body>
+
+
+</html>
